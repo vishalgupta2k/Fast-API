@@ -6,19 +6,15 @@ from src.books.schemas import Book, BookUpdate
 
 router = APIRouter()
 
-# @router.get("/")
-# async def root_check():
-#     return {"message": "your Server is running"}
-
 @router.get("/", response_model=dict)
-async def get_books():
-    return {"data": books, "status": 200, "message": "Books retrieved successfully"}
+async def get_books(status_code=status.HTTP_200_OK):
+    return {"data": books, "status": status_code, "message": "Books retrieved successfully"}
 
 @router.get("/{book_id}", response_model=dict)
-async def get_book(book_id: int):
+async def get_book(book_id: int, status_code=status.HTTP_200_OK):
     for book in books:
         if book["id"] == book_id:
-            return {"data": book, "status": 200, "message": "Book retrieved successfully"}
+            return {"data": book, "status": status_code, "message": "Book retrieved successfully"}
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Book not found")
 
 @router.post("/", status_code=status.HTTP_201_CREATED)
