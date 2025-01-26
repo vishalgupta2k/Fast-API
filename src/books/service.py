@@ -8,7 +8,7 @@ class BookService:
         result = await session.execute(statement)
         if result is None:
             return None
-        books = result.all()
+        return result.scalars().all()
 
     async def get_book(self,book_uid : str ,session:AsyncSession):
         statement = select(Book).where(Book.uid == book_uid)
