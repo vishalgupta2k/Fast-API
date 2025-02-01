@@ -1,7 +1,6 @@
 from fastapi import APIRouter, status, Depends
 from fastapi.exceptions import HTTPException
 from typing import List
-# from src.books.book_data import books
 from src.books.schemas import Book, BookUpdate,BookCreateModel
 from src.db.main import get_session
 from sqlalchemy.ext.asyncio.session import AsyncSession

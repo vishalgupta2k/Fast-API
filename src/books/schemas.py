@@ -20,7 +20,6 @@ class BookCreateModel(BaseModel):
     page_count: int
     language: str
 
-
 class BookUpdate(BaseModel):
     title: str
     author: str
