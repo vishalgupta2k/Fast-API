@@ -20,7 +20,7 @@ async def get_books(session: AsyncSession = Depends(get_session),status_code=sta
 
 
 @router.get("/{book_uid}", response_model=dict)
-async def get_book(book_uid: int,session: AsyncSession = Depends(get_session) ,status_code=status.HTTP_200_OK):
+async def get_book(book_uid: str,session: AsyncSession = Depends(get_session) ,status_code=status.HTTP_200_OK):
     book =  await book_service.get_book(book_uid, session)
     if book is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Book not found")
@@ -33,7 +33,7 @@ async def add_book( book_data: BookCreateModel,session: AsyncSession = Depends(g
 
 
 @router.put("/{book_uid}")
-async def update_book(book_uid: int, book_data: BookUpdate, session: AsyncSession = Depends(get_session), status_code=status.HTTP_204_NO_CONTENT):
+async def update_book(book_uid: str, book_data: BookUpdate, session: AsyncSession = Depends(get_session), status_code=status.HTTP_204_NO_CONTENT):
     new_data = book_data.model_dump()
     updated_book = await book_service.update_book(book_uid, new_data, session)
     if updated_book is not None:
@@ -42,7 +42,7 @@ async def update_book(book_uid: int, book_data: BookUpdate, session: AsyncSessio
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Book not found")
 
 @router.delete("/{book_uid}")
-async def delete_book(book_uid: int, session: AsyncSession = Depends(get_session),status_code=status.HTTP_204_NO_CONTENT):
+async def delete_book(book_uid: str, session: AsyncSession = Depends(get_session),status_code=status.HTTP_204_NO_CONTENT):
     book = await book_service.delete_book(book_uid, session)
     if book is not None:
         return {"message": "Book deleted", "status": 204, "data": book}
