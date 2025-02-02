@@ -1,2 +1,9 @@
+# Ignore all .env files
 .env
-**/__pycache__/*.pyc
+
+# Ignore all .pyc files
+*.pyc
+
+# Ignore all __pycache__ directories and their contents
+books/__pycache__/
+
