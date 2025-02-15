@@ -20,3 +20,11 @@ class UserService:
             raise e
         session.refresh(new_user)
         return new_user
+    async def login_user(self,user_data:User,session:AsyncSession):
+        user = await session.execute(select(User).where(User.email == user_data.email))
+        user = user.scalars().first()
+        if not user:
+            raise HTTPException(status_code=400, detail="User not found")
+        if user.password != user_data.password:
+            raise HTTPException(status_code=400, detail="Invalid password")
+        return user

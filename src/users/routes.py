@@ -1,7 +1,7 @@
 from fastapi import APIRouter, status, Depends
 from fastapi.exceptions import HTTPException
 from typing import List
-from src.users.schemas import User, UserCreateModel, UserResponse
+from src.users.schemas import User, UserCreateModel, UserResponse,UserLoginResponse,UserLogin
 from src.db.main import get_session
 from sqlalchemy.ext.asyncio.session import AsyncSession
 from src.users.service import UserService
@@ -13,3 +13,8 @@ async def add_user(user_data: UserCreateModel, session: AsyncSession = Depends(g
     new_user = await user_service.create_user(user_data, session)
     new_user_dict = new_user.dict()
     return new_user
+@router.post("/login", status_code=status.HTTP_200_OK, response_model=UserResponse)
+async def login_user(user_data: UserLogin, session: AsyncSession = Depends(get_session)) -> dict:
+    user = await user_service.login_user(user_data, session)
+    user_dict = user.dict()
+    return user_dict
