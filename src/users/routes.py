@@ -8,9 +8,8 @@ from src.users.service import UserService
 router = APIRouter()
 user_service = UserService()
 
-@router.post("/", status_code=status.HTTP_201_CREATED)
+@router.post("/", status_code=status.HTTP_201_CREATED, response_model=UserResponse)
 async def add_user(user_data: UserCreateModel, session: AsyncSession = Depends(get_session)) -> dict:
     new_user = await user_service.create_user(user_data, session)
     new_user_dict = new_user.dict()
-    new_user_dict.pop("password", None)
-    return new_user_dict
+    return new_user
