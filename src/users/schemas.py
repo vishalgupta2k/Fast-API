@@ -36,5 +36,4 @@ class UserResponse(BaseModel):
     email: EmailStr
     uid: uuid.UUID
     created_at: datetime
-    updated_at: datetime
 

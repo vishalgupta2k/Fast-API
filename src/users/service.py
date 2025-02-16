@@ -4,10 +4,14 @@ from .schemas import UserCreateModel
 from sqlmodel import select,desc
 from .models import User
 from datetime import datetime
+from passlib.context import CryptContext
 
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 class UserService:
     async def create_user(self,user_data:UserCreateModel,session:AsyncSession):
         user_data_dict = user_data.model_dump()
+        hashed_password = pwd_context.hash(user_data_dict['password'])
+        user_data_dict['password'] = hashed_password
         new_user = User(**user_data_dict)
         session.add(new_user)
         try :    
