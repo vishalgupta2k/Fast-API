@@ -24,16 +24,18 @@ class UserLogin(BaseModel):
     email: str
     password: str
 
-class UserLoginResponse(BaseModel):
-    email: str
-    token: str
-    token_type: str
-    username: str
-    uid: uuid.UUID
-
 class UserResponse(BaseModel):
     username: str
     email: EmailStr
     uid: uuid.UUID
     created_at: datetime
 
+class LoginUserResponse(BaseModel):
+    username: str
+    email: EmailStr
+    uid: uuid.UUID
+
+class LoginResponse(BaseModel):
+    token: str
+    token_type: str
+    user: LoginUserResponse
