@@ -38,6 +38,14 @@ This folder handles database configurations and interactions.
 - **`config.py`**: Handles the database connection setup and configurations (e.g., SQLAlchemy configuration).
 - **`main.py`**: Contains database initialization logic (e.g., creating tables or connecting to the database).
 
+#### `/src/migrations/`
+
+This folder contains database migration scripts managed by Alembic.
+
+- **`env.py`**: Environment configuration for Alembic.
+- **`script.py.mako`**: Template for Alembic migration scripts.
+- **`versions/`**: Folder containing individual migration scripts.
+
 ---
 
 ### `/env/`
@@ -118,6 +126,7 @@ Visit `http://127.0.0.1:8000/docs` for the Swagger UI documentation or `http://1
 - **Database**:
   - Configurable database setup using `config.py`.
   - Compatible with SQLAlchemy or any other ORM.
+  - Database migrations managed by Alembic.
 
 ---
 
@@ -125,6 +134,52 @@ Visit `http://127.0.0.1:8000/docs` for the Swagger UI documentation or `http://1
 
 - **Separation of Concerns**: The project structure adheres to a modular approach, separating concerns like routing, models, schemas, and services.
 - **Scalability**: The structure is designed to be scalable, making it easy to add new features or modules in the future.
+
+---
+
+## Alembic for Database Migrations
+
+Alembic is used for handling database migrations. Below are some common commands:
+
+### 1. **Initialize Alembic**
+
+If you haven't already initialized Alembic, you can do so with:
+
+```bash
+alembic init -t async migrations
+```
+
+### 2. **Create a New Migration**
+
+To create a new migration script after making changes to your models:
+
+```bash
+alembic revision --autogenerate -m "Description of changes"
+```
+
+### 3. **Apply Migrations**
+
+To apply the migrations to the database:
+
+```bash
+alembic upgrade head
+```
+
+### 4. **Downgrade Migrations**
+
+To revert the last migration:
+
+```bash
+alembic downgrade -1
+```
+
+### 5. **Check Current Migration**
+
+To check the current migration version:
+
+```bash
+alembic current
+```
 
 ---
 
@@ -138,4 +193,6 @@ Visit `http://127.0.0.1:8000/docs` for the Swagger UI documentation or `http://1
 
 ---
 
-If you have any questions or issues, feel free to raise an issue in the repository. Happy coding! 🚀
+##
+
+you have any questions or issues, feel free to raise an issue in the repository. Happy coding! 🚀
