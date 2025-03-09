@@ -22,6 +22,7 @@ class User (SQLModel, table=True):
         )
     )
     password: str
+    isVerified : bool = Field(default = False)
     created_at: datetime= Field(
         sa_column = Column(
             postgresql.TIMESTAMP,
