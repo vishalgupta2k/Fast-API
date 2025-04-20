@@ -21,7 +21,7 @@ class User (SQLModel, table=True):
             unique = True
         )
     )
-    password: str
+    password: str= Field(exclude = True)
     isVerified : bool = Field(default = False)
     created_at: datetime= Field(
         sa_column = Column(
