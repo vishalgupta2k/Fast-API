@@ -6,17 +6,17 @@
 </p>
 
 <h1 align="center">📚 Fast-API Book & User Management</h1>
-<p align="center">
+<p align="center"></p>
   <b>A modern, async-ready RESTful API for managing books and users.</b><br>
   <i>Built with FastAPI, SQLModel, and PostgreSQL.</i>
 </p>
 
 <p align="center">
-  <a href="https://github.com/your-username/fast-api-book-user/pulls">
+  <a href="https://github.com/vishalgupta2k/Fast-API/pulls">
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome"/>
   </a>
-  <a href="https://github.com/your-username/fast-api-book-user/issues">
-    <img src="https://img.shields.io/github/issues/your-username/fast-api-book-user?style=flat-square" alt="Issues"/>
+  <a href="https://github.com/vishalgupta2k/Fast-API/issues">
+    <img src="https://img.shields.io/github/issues/vishalgupta2k/Fast-API?style=flat-square" alt="Issues"/>
   </a>
   <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License"/>
 </p>
@@ -44,7 +44,9 @@
   <img src="https://avatars.githubusercontent.com/u/59588641?s=200&v=4" alt="SQLModel" width="50" title="SQLModel"/>
   <img src="https://www.postgresql.org/media/img/about/press/elephant.png" alt="PostgreSQL" width="50" title="PostgreSQL"/>
   <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/pydantic.svg" alt="Pydantic" width="50" title="Pydantic"/>
-  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/passlib.svg" alt="Passlib" width="50" title="Passlib"/>
+  <a href="https://pypi.org/project/passlib/">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/passlib.svg" alt="Passlib" width="50" title="Passlib"/>
+  </a>
   <img src="https://jwt.io/img/pic_logo.svg" alt="JWT" width="50" title="JWT"/>
 </p>
 
@@ -52,7 +54,7 @@
 - **SQLModel** - ORM for SQL databases
 - **PostgreSQL** - Relational database
 - **Pydantic** - Data validation
-- **Passlib** - Password hashing
+- **[Passlib](https://pypi.org/project/passlib/)** - Password hashing
 - **JWT** - Authentication tokens
 
 ---
@@ -62,8 +64,8 @@
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/your-username/fast-api-book-user.git
-   cd fast-api-book-user
+   git clone https://github.com/vishalgupta2k/Fast-API.git
+   cd Fast-API
    ```
 
 2. **Install dependencies**
@@ -137,7 +139,7 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 - Ensure your code passes linting and tests.
 - Open a PR with a clear description and link to any relevant issues.
 
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/your-username/fast-api-book-user/pulls)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/vishalgupta2k/Fast-API/pulls)
 
 ---
 
